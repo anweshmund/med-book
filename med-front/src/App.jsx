@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from './pages/home'
+import Home from './pages/Home'
 
 import Login from './pages/login'
 import About from './pages/about'
@@ -10,6 +10,7 @@ import Mybook from './pages/mybook'
 import Appointment from './pages/Appointment'
 import Navbar from './component/Navbar'
 import Doctor from './pages/Doctor'
+import Footer from './component/footer'
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
       <Route part='/my-appointments' element ={<Mybook/>}/>
       <Route part='/appointments:/docId' element ={<Appointment/>}/>
     </Routes>
+   <Footer/>
     </div>
   )
 }
