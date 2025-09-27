@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AppContext } from '../context/AppContext'   // ✅ use the correct name
+import { AppContext } from '../context/AppContext'   
 
 const TopDoc = () => {
   const navigate = useNavigate()
-  const { doctors } = useContext(AppContext)  // ✅ use AppContext
+  const { doctors } = useContext(AppContext)  
 
   return (
     <div className='flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10'>
@@ -15,7 +15,7 @@ const TopDoc = () => {
       <div className='w-full grid grid-cols-auto gap-4 pt-5 gap-y-6 px-3 sm:px-0'>
         {doctors.slice(0, 10).map((item) => (
           <div
-            key={item._id}   // ✅ better to use unique _id instead of index
+            key={item._id}   
             onClick={() => navigate(`/appointments/${item._id}`)}
             className='border border-blue-300 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500'
           >
