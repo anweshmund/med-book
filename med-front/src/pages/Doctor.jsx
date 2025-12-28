@@ -8,13 +8,19 @@ const Doctor = () => {
   const [filterDoc, setFilterDoc] = useState([])
   const navigate = useNavigate()
 
-  const applyFilter = () => {
-    if (speciality) {
-      setFilterDoc(doctors.filter(doc => doc.speciality === speciality))
-    } else {
-      setFilterDoc(doctors)
-    }
+const applyFilter = () => {
+  if (speciality) {
+    const filtered = doctors.filter(
+      doc =>
+        doc.speciality.toLowerCase().trim() ===
+        speciality.toLowerCase().trim()
+    )
+    setFilterDoc(filtered)
+  } else {
+    setFilterDoc(doctors)
   }
+}
+
 
   useEffect(() => {
     applyFilter()
@@ -94,12 +100,12 @@ const Doctor = () => {
 
           <p
             onClick={() =>
-              speciality === 'Gastroenterologist'
+              speciality == 'Gastroenterologist'
                 ? navigate('/doctors')
                 : navigate('/doctors/Gastroenterologist')
             }
             className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-300 rounded transition-all cursor-pointer
-              ${speciality === 'Gastroenterologist' ? 'bg-indigo-100 text-black' : ''}
+              ${speciality == 'Gastroenterologist' ? 'bg-indigo-100 text-black' : ''}
             `}
           >
             Gastroenterologist
